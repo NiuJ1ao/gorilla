@@ -62,6 +62,8 @@ from bfcl_eval.model_handler.local_inference.quick_testing_oss import (
 )
 from bfcl_eval.model_handler.local_inference.qwen import QwenHandler
 from bfcl_eval.model_handler.local_inference.qwen_fc import QwenFCHandler
+from bfcl_eval.model_handler.local_inference.qwen25 import Qwen25Handler
+from bfcl_eval.model_handler.local_inference.qwen25_fc import Qwen25FCHandler
 from bfcl_eval.model_handler.local_inference.salesforce_llama import (
     SalesforceLlamaHandler,
 )
@@ -1690,6 +1692,30 @@ local_inference_model_map = {
         org="Qwen",
         license="apache-2.0",
         model_handler=QwenHandler,
+        input_price=None,
+        output_price=None,
+        is_fc_model=False,
+        underscore_to_dot=False,
+    ),
+    "Qwen/Qwen2.5-7B-Instruct-FC": ModelConfig(
+        model_name="Qwen/Qwen2.5-7B-Instruct-FC",
+        display_name="Qwen2.5-7B-Instruct (FC)",
+        url="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+        org="Qwen",
+        license="apache-2.0",
+        model_handler=Qwen25FCHandler,
+        input_price=None,
+        output_price=None,
+        is_fc_model=True,
+        underscore_to_dot=False,
+    ),
+    "Qwen/Qwen2.5-7B-Instruct": ModelConfig(
+        model_name="Qwen/Qwen2.5-7B-Instruct",
+        display_name="Qwen2.5-7B-Instruct (Prompt)",
+        url="https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+        org="Qwen",
+        license="apache-2.0",
+        model_handler=Qwen25Handler,
         input_price=None,
         output_price=None,
         is_fc_model=False,
